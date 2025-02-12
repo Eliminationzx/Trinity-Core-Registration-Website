@@ -30,11 +30,6 @@ $stats = new Stats();
                     <h5 class="text-gray-900 text-xl font-medium mb-2 dark:text-white">Register an Account.</h5>
                     <form action="./assets/functions.php" method="post">
                         <div class="mb-6">
-                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
-                            <input type="text" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username" required>
-                        </div>
-
-                        <div class="mb-6">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
                             <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required>
                         </div>
@@ -52,10 +47,7 @@ $stats = new Stats();
                         <button id="regbut" type="submit" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full" disabled>Register</button>
                     </form>
                     <?php
-                    if (isset($_SESSION['userExist'])) {
-                        echo '<span class="text-red-400">Username already exists! Choose another name!</span>';
-                        unset($_SESSION['userExist']);
-                    } elseif (isset($_SESSION['emailExist'])) {
+                    if (isset($_SESSION['emailExist'])) {
                         echo '<span class="text-red-400">Account with this email already exists! Use another email.</span>';
                         unset($_SESSION['emailExist']);
                     } elseif (isset($_SESSION['empty'])) {
