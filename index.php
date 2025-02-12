@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'assets/config.php';
 include 'assets/stats.php';
 
 // Create an instance of the Stats class
@@ -11,7 +10,7 @@ $stats = new Stats();
 
 <head>
     <!-- META -->
-    <title><?php echo $title; ?></title>
+	<title><?php echo getenv('PAGE_TITLE') ?: 'Default Title'; ?></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,11 +66,14 @@ $stats = new Stats();
                         unset($_SESSION['success']);
                     }
                     ?>
-                    <div class="mb-6"><br>
-                        <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"><b>REALMLIST: </b><?php 
-                        echo $realmlist;
-                        ?></label>
-                    </div>
+					<div class="mb-6"><br>
+						<label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+							<b>REALMLIST: </b>
+							<?php 
+								echo getenv('REALMLIST') ?: 'localhost';
+							?>
+						</label>
+					</div>
                     <!-- Use text-red-400 if server offline -->
                     <!-- Use "fa-solid fa-bolt-slash" if server offline-->
                     <div class="text-center dark:text-white"><i class="fa-solid fa-bolt text-green-400"></i> Server Status <i class="fa-solid fa-bolt text-green-400"></i></div>
